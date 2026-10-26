@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="CKRPRO Gaming Tools Hub">
   <title>CKRPRO | Gaming Tools Hub</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --bg: #0b0c10;
@@ -21,11 +26,15 @@
       --muted: #8c93a6;
       --purple: #9b6dff;
       --cyan: #3cc8e8;
+      --green: #19d77b;
       --ease: cubic-bezier(.22, 1, .36, 1);
       --spring: cubic-bezier(.34, 1.56, .64, 1);
     }
 
-    html { -webkit-text-size-adjust: 100%; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
@@ -36,21 +45,21 @@
       justify-content: center;
       background: var(--bg);
       color: var(--text);
-      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system,
+        "Segoe UI", Roboto, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    .container { width: 100%; max-width: 340px; }
+    .container {
+      width: 100%;
+      max-width: 340px;
+      margin: auto;
+    }
 
-    /* ---------- Header ---------- */
-    .header { margin-bottom: 24px; }
-
-    .top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
+    /* HEADER */
+    .header {
+      margin-bottom: 24px;
     }
 
     .title {
@@ -61,32 +70,44 @@
     }
 
     .lead {
-      margin-top: 8px;
+      margin-top: 9px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: 12.5px;
+      line-height: 1.6;
       font-weight: 500;
     }
 
-
-    /* ---------- Cards ---------- */
-    .cards { display: grid; gap: 12px; }
+    /* CARDS */
+    .cards {
+      display: grid;
+      gap: 12px;
+    }
 
     .card {
       --accent: var(--purple);
+
       position: relative;
       display: block;
       padding: 16px;
-      border-radius: 20px;
+      border-radius: 19px;
       background: var(--surface);
       color: var(--text);
       text-decoration: none;
       overflow: hidden;
       isolation: isolate;
       -webkit-tap-highlight-color: transparent;
-      transition: background .35s var(--ease), transform .35s var(--spring);
+      transition:
+        background .3s var(--ease),
+        transform .3s var(--spring);
     }
-    .card.cyan { --accent: var(--cyan); }
+
+    .card.cyan {
+      --accent: var(--cyan);
+    }
+
+    .card.green {
+      --accent: var(--green);
+    }
 
     .card::before {
       content: "";
@@ -96,14 +117,16 @@
       background: var(--accent);
       opacity: 0;
       transform: translateX(-101%);
-      transition: transform .55s var(--ease), opacity .55s var(--ease);
+      transition:
+        transform .45s var(--ease),
+        opacity .45s var(--ease);
     }
 
     .card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
     .icon-box {
@@ -111,12 +134,19 @@
       height: 42px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
+      border-radius: 13px;
       background: var(--surface-high);
       color: var(--accent);
-      transition: background .35s var(--ease), color .35s var(--ease), transform .5s var(--spring);
+      transition:
+        background .3s var(--ease),
+        color .3s var(--ease),
+        transform .4s var(--spring);
     }
-    .icon-box svg { width: 21px; height: 21px; }
+
+    .icon-box svg {
+      width: 21px;
+      height: 21px;
+    }
 
     .arrow {
       width: 30px;
@@ -126,113 +156,178 @@
       border-radius: 50%;
       background: var(--surface-high);
       color: var(--text);
-      transition: background .35s var(--ease), color .35s var(--ease), transform .5s var(--spring);
+      transition:
+        background .3s var(--ease),
+        color .3s var(--ease),
+        transform .4s var(--spring);
     }
-    .arrow svg { width: 14px; height: 14px; }
+
+    .arrow svg {
+      width: 14px;
+      height: 14px;
+    }
 
     .card h2 {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -.4px;
-      transition: color .35s var(--ease);
+      line-height: 1.35;
+      letter-spacing: -.3px;
+      transition: color .3s var(--ease);
     }
 
     .card p {
       margin-top: 5px;
       color: var(--muted);
-      font-size: 12.5px;
+      font-size: 12px;
       line-height: 1.5;
       font-weight: 500;
-      transition: color .35s var(--ease);
+      transition: color .3s var(--ease);
     }
 
     .card-action {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      padding: 9px 14px;
-      border-radius: 12px;
+      gap: 7px;
+      margin-top: 15px;
+      padding: 9px 13px;
+      border-radius: 11px;
       background: var(--accent);
       color: #0b0c10;
-      font-size: 12.5px;
-      font-weight: 700;
-      transition: background .35s var(--ease), color .35s var(--ease), transform .15s var(--ease);
+      font-size: 12px;
+      font-weight: 800;
+      transition:
+        background .3s var(--ease),
+        color .3s var(--ease),
+        transform .2s var(--ease);
     }
-    .card-action svg { width: 12px; height: 12px; transition: transform .4s var(--spring); }
 
+    .card-action svg {
+      width: 12px;
+      height: 12px;
+      transition: transform .3s var(--spring);
+    }
+
+    /* HOVER */
     @media (hover: hover) {
-      .card:hover { transform: translateY(-3px); }
-      .card:hover::before { opacity: 1; transform: translateX(0); }
-      .card:hover h2 { color: #0b0c10; }
-      .card:hover p { color: #0b0c10b3; }
-      .card:hover .icon-box { background: #0b0c101f; color: #0b0c10; transform: rotate(-8deg) scale(1.06); }
-      .card:hover .arrow { background: #0b0c10; color: var(--accent); transform: rotate(45deg); }
-      .card:hover .card-action { background: #0b0c10; color: var(--text); }
-      .card:hover .card-action svg { transform: translate(2px, -2px); }
+      .card:hover {
+        transform: translateY(-3px);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .card:hover h2 {
+        color: #0b0c10;
+      }
+
+      .card:hover p {
+        color: #0b0c10;
+        opacity: .75;
+      }
+
+      .card:hover .icon-box {
+        background: #0b0c101f;
+        color: #0b0c10;
+        transform: rotate(-7deg) scale(1.05);
+      }
+
+      .card:hover .arrow {
+        background: #0b0c10;
+        color: var(--accent);
+        transform: rotate(45deg);
+      }
+
+      .card:hover .card-action {
+        background: #0b0c10;
+        color: var(--text);
+      }
+
+      .card:hover .card-action svg {
+        transform: translate(2px, -2px);
+      }
     }
 
-    .card:active { transform: scale(.97); }
-    .card:active .card-action { transform: scale(.94); }
+    .card:active {
+      transform: scale(.98);
+    }
 
-    .card:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+    .card:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 3px;
+    }
 
-    /* ---------- Footer ---------- */
+    /* FOOTER */
     .footer {
-      margin-top: 26px;
+      margin-top: 25px;
       text-align: center;
-      color: #5f6578;
-      font-size: 11.5px;
+      color: #62697b;
+      font-size: 11px;
       font-weight: 500;
-      line-height: 1.7;
+      line-height: 1.8;
     }
-    .footer strong { color: var(--muted); font-weight: 800; }
-    .footer small { display: block; font-size: 11px; color: #4b5163; }
 
-    /* ---------- Entrance ---------- */
+    .footer strong {
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    /* ANIMATION */
     .reveal {
       opacity: 0;
-      transform: translateY(26px) scale(.96);
-      animation: rise .8s var(--spring) forwards;
-      animation-delay: calc(var(--i) * 120ms + 120ms);
+      transform: translateY(20px);
+      animation: rise .65s var(--spring) forwards;
+      animation-delay: calc(var(--i) * 100ms + 80ms);
     }
+
     .reveal .icon-box {
-      animation: pop .6s var(--spring) both;
-      animation-delay: calc(var(--i) * 120ms + 450ms);
-    }
-    .reveal .card-action {
-      animation: nudge .7s var(--ease) both;
-      animation-delay: calc(var(--i) * 120ms + 850ms);
-    }
-    .footer.reveal { transform: translateY(8px); animation-name: rise; animation-timing-function: var(--ease); }
-
-    @keyframes rise { to { opacity: 1; transform: none; } }
-    @keyframes pop { from { transform: scale(.4) rotate(-20deg); } to { transform: none; } }
-    @keyframes nudge {
-      0% { transform: translateX(0); }
-      35% { transform: translateX(-5px); }
-      70% { transform: translateX(2px); }
-      100% { transform: translateX(0); }
+      animation: pop .5s var(--spring) both;
+      animation-delay: calc(var(--i) * 100ms + 250ms);
     }
 
-    .bit {
-      position: fixed;
-      z-index: 50;
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      pointer-events: none;
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.7);
+      }
+      to {
+        transform: scale(1);
+      }
     }
 
     @media (max-width: 340px) {
-      body { padding: 18px 12px; }
-      .card { padding: 14px; }
+      body {
+        padding: 18px 12px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .card {
+        padding: 14px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -241,59 +336,136 @@
   <main class="container">
 
     <header class="header reveal" style="--i:0">
-      <div class="top">
-        <h1 class="title">Gaming tools,<br>all in one place.</h1>
-      </div>
+      <h1 class="title">Gaming tools,<br>all in one place.</h1>
       <p class="lead"></p>
     </header>
 
-    <section class="cards" aria-label="Available panels">
+    <section class="cards" aria-label="Available gaming tools">
 
-      <a class="card purple reveal" data-sound="honk" data-color="#9b6dff" style="--i:1"
-         href="https://free-fire-glory-bot-ckr-and-bbc-web.vercel.app/" target="_blank" rel="noopener noreferrer"
-         aria-label="Open Free Fire Glory Bot">
+      <!-- FREE FIRE GLORY BOT -->
+      <a
+        class="card reveal"
+        style="--i:1"
+        href="https://free-fire-glory-bot-ckr-and-bbc-web.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Free Fire Glory Bot"
+      >
         <div class="card-top">
           <div class="icon-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.7V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" fill="currentColor" fill-opacity=".22"/>
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+              <path d="M4 22h16"/>
+              <path d="M10 14.7V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+              <path d="M14 14.7V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"
+                fill="currentColor" fill-opacity=".22"/>
             </svg>
           </div>
+
           <div class="arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
           </div>
         </div>
+
         <h2>Free Fire Glory Bot</h2>
         <p></p>
+
         <span class="card-action">
           Open website
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M7 17L17 7M8 7h9v9"/>
           </svg>
         </span>
       </a>
 
-      <a class="card cyan reveal" data-sound="boing" data-color="#3cc8e8" style="--i:2"
-         href="https://ckrpro-paid.vercel.app/" target="_blank" rel="noopener noreferrer"
-         aria-label="Open FF TOPUP">
+      <!-- FF TOPUP -->
+      <a
+        class="card cyan reveal"
+        style="--i:2"
+        href="https://ckrpro-paid.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open FF TOPUP"
+      >
         <div class="card-top">
           <div class="icon-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 3h12l4 6-10 12L2 9l4-6Z" fill="currentColor" fill-opacity=".22"/><path d="M2 9h20M9 3l3 6 3-6M12 9v12"/>
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l4 6-10 12L2 9l4-6Z"
+                fill="currentColor" fill-opacity=".22"/>
+              <path d="M2 9h20M9 3l3 6 3-6M12 9v12"/>
             </svg>
           </div>
+
           <div class="arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6"/>
             </svg>
           </div>
         </div>
+
         <h2>FF TOPUP</h2>
         <p></p>
+
         <span class="card-action">
           Open website
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M8 7h9v9"/>
+          </svg>
+        </span>
+      </a>
+
+      <!-- REQUEST SPAM -->
+      <a
+        class="card green reveal"
+        style="--i:3"
+        href="https://ckrpro-rq.vercel.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Request Spam"
+      >
+        <div class="card-top">
+          <div class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.4Z"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+
+          <div class="arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </div>
+        </div>
+
+        <h2>Request Spam</h2>
+        <p></p>
+
+        <span class="card-action">
+          Open website
+          <svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round">
             <path d="M7 17L17 7M8 7h9v9"/>
           </svg>
         </span>
@@ -301,360 +473,11 @@
 
     </section>
 
-    <footer class="footer reveal" style="--i:3">
-       <strong></strong>
-      <small></small>
+    <footer class="footer reveal" style="--i:4">
+      <strong></strong>
+      <div></div>
     </footer>
 
   </main>
-
-  <script>
-    (function () {
-      var AC = null, input = null, outGain = null;
-      var introDone = false;
-      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      /* ---------- Audio engine (loud chain) ---------- */
-      function boot() {
-        if (AC) return AC;
-        var Ctx = window.AudioContext || window.webkitAudioContext;
-        if (!Ctx) return null;
-        AC = new Ctx();
-
-        var comp = AC.createDynamicsCompressor();
-        comp.threshold.value = -30;
-        comp.knee.value = 24;
-        comp.ratio.value = 14;
-        comp.attack.value = 0.002;
-        comp.release.value = 0.15;
-
-        var pre = AC.createGain();
-        pre.gain.value = 3.4;                     // big makeup gain
-
-        var shaper = AC.createWaveShaper();       // soft clip = louder, not harsh
-        var curve = new Float32Array(1024);
-        for (var i = 0; i < 1024; i++) {
-          var x = i / 512 - 1;
-          curve[i] = Math.tanh(2.2 * x);
-        }
-        shaper.curve = curve;
-        shaper.oversample = '4x';
-
-        var limiter = AC.createDynamicsCompressor();
-        limiter.threshold.value = -2;
-        limiter.knee.value = 0;
-        limiter.ratio.value = 20;
-        limiter.attack.value = 0.001;
-        limiter.release.value = 0.05;
-
-        outGain = AC.createGain();
-        outGain.gain.value = 1;
-
-        comp.connect(pre);
-        pre.connect(shaper);
-        shaper.connect(limiter);
-        limiter.connect(outGain);
-        outGain.connect(AC.destination);
-        input = comp;
-        return AC;
-      }
-
-      function ready(fn) {
-        if (!boot()) return;
-        if (AC.state === 'running') { fn(); return; }
-        AC.resume().then(fn).catch(function () {});
-      }
-
-      function env(g, t, peak, dur) {
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(peak, t + 0.012);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      }
-
-      function boing(t) {
-        var o = AC.createOscillator(), lfo = AC.createOscillator();
-        var lg = AC.createGain(), g = AC.createGain();
-        o.type = 'square';
-        o.frequency.setValueAtTime(150, t);
-        o.frequency.exponentialRampToValueAtTime(820, t + 0.1);
-        o.frequency.exponentialRampToValueAtTime(100, t + 0.65);
-        lfo.frequency.value = 27;
-        lg.gain.value = 80;
-        lfo.connect(lg); lg.connect(o.frequency);
-        env(g, t, 0.7, 0.7);
-        o.connect(g); g.connect(input);
-        o.start(t); lfo.start(t);
-        o.stop(t + 0.75); lfo.stop(t + 0.75);
-      }
-
-      function honk(t, base) {
-        var g = AC.createGain(), f = AC.createBiquadFilter();
-        f.type = 'lowpass';
-        f.frequency.value = 2400;
-        env(g, t, 0.9, 0.3);
-        [base, base * 1.06, base * 0.5].forEach(function (fr) {
-          var o = AC.createOscillator();
-          o.type = 'sawtooth';
-          o.frequency.setValueAtTime(fr * 1.3, t);
-          o.frequency.exponentialRampToValueAtTime(fr, t + 0.06);
-          o.connect(f);
-          o.start(t); o.stop(t + 0.32);
-        });
-        f.connect(g); g.connect(input);
-      }
-
-      function squeak(t, f) {
-        var o = AC.createOscillator(), g = AC.createGain();
-        o.type = 'triangle';
-        o.frequency.setValueAtTime(f, t);
-        o.frequency.exponentialRampToValueAtTime(f * 1.7, t + 0.06);
-        o.frequency.exponentialRampToValueAtTime(f * 1.15, t + 0.16);
-        env(g, t, 0.9, 0.2);
-        o.connect(g); g.connect(input);
-        o.start(t); o.stop(t + 0.22);
-      }
-
-      function whistle(t) {
-        var o = AC.createOscillator(), g = AC.createGain();
-        o.type = 'sine';
-        o.frequency.setValueAtTime(380, t);
-        o.frequency.exponentialRampToValueAtTime(2200, t + 0.35);
-        env(g, t, 1, 0.4);
-        o.connect(g); g.connect(input);
-        o.start(t); o.stop(t + 0.42);
-      }
-
-      function pop(t) {
-        var o = AC.createOscillator(), g = AC.createGain();
-        o.type = 'sine';
-        o.frequency.setValueAtTime(950, t);
-        o.frequency.exponentialRampToValueAtTime(170, t + 0.09);
-        env(g, t, 1, 0.12);
-        o.connect(g); g.connect(input);
-        o.start(t); o.stop(t + 0.14);
-      }
-
-      function bonk(t) {
-        var o = AC.createOscillator(), g = AC.createGain();
-        o.type = 'sine';
-        o.frequency.setValueAtTime(240, t);
-        o.frequency.exponentialRampToValueAtTime(55, t + 0.16);
-        env(g, t, 1, 0.22);
-        o.connect(g); g.connect(input);
-        o.start(t); o.stop(t + 0.25);
-      }
-
-      function kazoo(t, f, dur) {
-        var g = AC.createGain(), bp = AC.createBiquadFilter();
-        var lfo = AC.createOscillator(), lg = AC.createGain();
-        bp.type = 'bandpass';
-        bp.frequency.value = 1150;
-        bp.Q.value = 2.2;
-        lfo.frequency.value = 6;
-        lg.gain.value = f * 0.012;
-        lfo.connect(lg);
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(0.9, t + 0.02);
-        g.gain.setValueAtTime(0.9, t + dur - 0.05);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-        [f, f * 1.012].forEach(function (fr) {
-          var o = AC.createOscillator();
-          o.type = 'sawtooth';
-          o.frequency.value = fr;
-          lg.connect(o.frequency);
-          o.connect(bp);
-          o.start(t); o.stop(t + dur + 0.02);
-        });
-        bp.connect(g); g.connect(input);
-        lfo.start(t); lfo.stop(t + dur + 0.02);
-      }
-
-
-      var noiseBuf = null;
-      function breath(t, dur, vol) {
-        if (!noiseBuf) {
-          noiseBuf = AC.createBuffer(1, AC.sampleRate * 0.3, AC.sampleRate);
-          var d = noiseBuf.getChannelData(0);
-          for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-        }
-        var n = AC.createBufferSource(), hp = AC.createBiquadFilter(), g = AC.createGain();
-        n.buffer = noiseBuf;
-        hp.type = 'highpass';
-        hp.frequency.value = 2200;
-        env(g, t, vol, dur);
-        n.connect(hp); hp.connect(g); g.connect(input);
-        n.start(t); n.stop(t + dur + 0.02);
-      }
-
-      // one "ha": buzzy voice shaped by two vowel formants
-      function ha(t, f, dur) {
-        var o = AC.createOscillator(), o2 = AC.createOscillator();
-        var f1 = AC.createBiquadFilter(), f2 = AC.createBiquadFilter();
-        var g1 = AC.createGain(), g2 = AC.createGain(), g = AC.createGain();
-        o.type = 'sawtooth'; o2.type = 'square';
-        o.frequency.setValueAtTime(f * 1.18, t);
-        o.frequency.exponentialRampToValueAtTime(f, t + dur);
-        o2.frequency.setValueAtTime(f * 1.18 * 0.5, t);
-        o2.frequency.exponentialRampToValueAtTime(f * 0.5, t + dur);
-        f1.type = 'bandpass'; f1.frequency.value = 850; f1.Q.value = 4;
-        f2.type = 'bandpass'; f2.frequency.value = 1350; f2.Q.value = 5;
-        g1.gain.value = 1.4; g2.gain.value = 1.0;
-        env(g, t, 0.95, dur);
-        o.connect(f1); o2.connect(f1); o.connect(f2);
-        f1.connect(g1); f2.connect(g2);
-        g1.connect(g); g2.connect(g); g.connect(input);
-        o.start(t); o2.start(t); o.stop(t + dur + 0.02); o2.stop(t + dur + 0.02);
-        breath(t, 0.07, 0.22);
-      }
-
-      // ha-ha-ha-ha-haaa
-      function laugh(t) {
-        var f = 300;
-        for (var i = 0; i < 5; i++) {
-          ha(t + i * 0.17, f - i * 14, 0.13);
-        }
-        ha(t + 5 * 0.17, 205, 0.34);
-      }
-
-      // sad trombone: wah, wah, wah, waaaah
-      function trombone(t) {
-        var notes = [[233, 0.38], [220, 0.38], [208, 0.38], [196, 1.0]];
-        var at = t;
-        notes.forEach(function (n, idx) {
-          var last = idx === notes.length - 1;
-          var f = n[0], dur = n[1];
-          var lp = AC.createBiquadFilter(), g = AC.createGain();
-          var lfo = AC.createOscillator(), lg = AC.createGain();
-          lp.type = 'lowpass';
-          lp.Q.value = 6;
-          lp.frequency.setValueAtTime(350, at);
-          lp.frequency.exponentialRampToValueAtTime(1300, at + 0.12);
-          lp.frequency.exponentialRampToValueAtTime(500, at + dur);
-          g.gain.setValueAtTime(0.0001, at);
-          g.gain.exponentialRampToValueAtTime(0.95, at + 0.04);
-          g.gain.setValueAtTime(0.95, at + dur - 0.07);
-          g.gain.exponentialRampToValueAtTime(0.0001, at + dur);
-          lfo.frequency.value = last ? 6 : 0.1;
-          lg.gain.value = last ? 5 : 0;
-          lfo.connect(lg);
-          [['sawtooth', 1], ['square', 0.5]].forEach(function (w) {
-            var o = AC.createOscillator();
-            o.type = w[0];
-            o.frequency.setValueAtTime(f * w[1], at);
-            if (last) o.frequency.exponentialRampToValueAtTime(f * w[1] * 0.82, at + dur);
-            lg.connect(o.frequency);
-            o.connect(lp);
-            o.start(at); o.stop(at + dur + 0.02);
-          });
-          lp.connect(g); g.connect(input);
-          lfo.start(at); lfo.stop(at + dur + 0.02);
-          at += dur + 0.03;
-        });
-      }
-
-      var sounds = {
-        honk: function (t) {              // honk honk + squeaky toy
-          honk(t, 330);
-          honk(t + 0.2, 392);
-          squeak(t + 0.48, 900);
-        },
-        boing: function (t) {             // boing, whee, pop, bonk
-          boing(t);
-          whistle(t + 0.22);
-          pop(t + 0.62);
-          bonk(t + 0.78);
-        },
-        laugh: function (t) {             // ha ha ha ha haaa
-          laugh(t);
-        },
-        sad: function (t) {               // wah wah wah waaaah
-          trombone(t);
-        },
-        party: function (t) {             // boing then laugh
-          boing(t);
-          laugh(t + 0.55);
-        },
-        intro: function (t) {             // kazoo "da-da-daaa" + squeak
-          kazoo(t, 392, 0.14);
-          kazoo(t + 0.17, 392, 0.14);
-          kazoo(t + 0.34, 523, 0.42);
-          squeak(t + 0.86, 1000);
-          pop(t + 1.08);
-        }
-      };
-
-      function play(name) {
-        ready(function () {
-          if (sounds[name]) sounds[name](AC.currentTime + 0.02);
-        });
-      }
-
-      /* ---------- Open sound ---------- */
-      function intro() {
-        if (introDone) return;
-        introDone = true;
-        play('intro');
-      }
-
-      // 1) try as soon as the page opens (works if the browser allows it)
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          if (boot() && AC.state === 'running') intro();
-        }, 300);
-      });
-
-      // 2) otherwise play on the very first touch / key press anywhere
-      function firstTouch(e) {
-        if (introDone) return;
-        var el = e.target && e.target.closest ? e.target.closest('.card') : null;
-        if (el) { introDone = true; return; }     // they tapped something with its own sound
-        intro();
-      }
-      window.addEventListener('pointerup', firstTouch, { passive: true });
-      window.addEventListener('keydown', firstTouch);
-
-      /* ---------- Click sound + confetti ---------- */
-      function burst(x, y, color) {
-        if (reduceMotion || !document.body.animate) return;
-        var colors = [color, '#eceef2', color, '#ffb547'];
-        for (var i = 0; i < 16; i++) {
-          var b = document.createElement('div');
-          b.className = 'bit';
-          b.style.left = x - 4 + 'px';
-          b.style.top = y - 4 + 'px';
-          b.style.background = colors[i % colors.length];
-          document.body.appendChild(b);
-          var a = Math.random() * Math.PI * 2;
-          var d = 50 + Math.random() * 80;
-          var dx = Math.cos(a) * d;
-          var dy = Math.sin(a) * d - 30;
-          var anim = b.animate([
-            { transform: 'translate(0,0) rotate(0deg) scale(1)', opacity: 1 },
-            { transform: 'translate(' + dx + 'px,' + (dy + 60) + 'px) rotate(' + (Math.random() * 540 - 270) + 'deg) scale(.4)', opacity: 0 }
-          ], { duration: 650 + Math.random() * 250, easing: 'cubic-bezier(.2,.7,.3,1)' });
-          anim.onfinish = (function (n) { return function () { n.remove(); }; })(b);
-        }
-      }
-
-      var pool = ['laugh', 'honk', 'sad', 'boing', 'party'];
-      var last = '';
-      function pick() {
-        var n;
-        do { n = pool[Math.floor(Math.random() * pool.length)]; } while (n === last);
-        last = n;
-        return n;
-      }
-
-      document.querySelectorAll('.card').forEach(function (card) {
-        card.addEventListener('click', function (e) {
-          introDone = true;
-          play(pick());
-          burst(e.clientX || card.getBoundingClientRect().left + 40,
-                e.clientY || card.getBoundingClientRect().top + 30,
-                card.getAttribute('data-color') || '#8f73f5');
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
